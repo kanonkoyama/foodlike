@@ -1,0 +1,34 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <p>本当に削除しますか？</p>
+      <div class = "destroy-menus">
+        <%= button_to("削除する", "/posts/#{@post.id}/destroy", {turbo_method: :delete}) %>
+        <%= link_to("戻る", "/posts/#{@post.id}") %>
+      </div>  
+      <div class="post-user-name">
+        <%= image_tag @post.user.image.thumb.url %>
+        <%= link_to(@post.user.name, "/users/#{@post.user.id}") %>
+      </div>
+      <p>
+        <%= @post.content %>
+      </p>
+      <div class="post-image">
+        <%= image_tag @post.post_image.thumb.url %>
+      </div>
+      <div class="post-time">
+        <%= @post.created_at %>
+      </div>
+      <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-heart liked-btn"></span>
+        <% end %>
+      <% else %>
+        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-heart unliked-btn"></span>
+        <% end %>
+      <% end %>
+      <%= @likes_count %>
+    </div>
+  </div>
+</div>

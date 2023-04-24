@@ -1,0 +1,20 @@
+<div class="main contacts-index">
+  <div class="container">
+
+    <% @contacts.each do |contact| %>
+      <div class="contacts-index-item">
+        <div class="contact-user">
+          <div class="img">
+            <%= image_tag contact.user.image.thumb.url %>
+          </div>
+          <div class="name">
+            <%= link_to(contact.user.name, "/users/#{contact.user.id}") %>
+          </div>
+        </div>
+        <div class="contact-content">
+          <%= contact.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

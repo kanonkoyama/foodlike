@@ -1,0 +1,18 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">投稿する</h1>
+<%= form_with model:@create, url:"create" do |f| %>
+  <div class="form">
+    <div class="form-body">
+      <% @contact.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+      <textarea name="content" style = "width:60%; height:80px;"><%= @contact.content %></textarea>
+      <p><%= f.submit value: '送信' %></p>
+    </div>
+  </div>
+<% end %>
+  </div>
+</div>

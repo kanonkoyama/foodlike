@@ -1,0 +1,21 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">投稿する</h1>
+    <%= form_with model:@post, url: 'create'  do |f| %>
+      <div class="form">
+        <div class="form-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <%= f.label :画像%><br />
+          <%= f.file_field :post_image %>
+          <% f.hidden_field :post_image_cache %>
+          <textarea name="content"><%= @post.content %></textarea>
+          <p><%= f.submit value: '投稿' %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
