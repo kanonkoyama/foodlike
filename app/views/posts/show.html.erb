@@ -15,11 +15,11 @@
         <%= @post.created_at %>
       </div>
       <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
-        <%= link_to("/likes/#{@post.id}/destroy", {turbo_method: :post}) do %>
+        <%= link_to("/likes/#{@post.id}/destroy", data: {turbo_method: :post}) do %>
           <span class="fa fa-heart liked-btn"></span>
         <% end %>
       <% else %>
-        <%= link_to("/likes/#{@post.id}/create", {turbo_method: :post}) do %>
+        <%= link_to("/likes/#{@post.id}/create", data: {turbo_method: :post}) do %>
           <span class="fa fa-heart unliked-btn"></span>
         <% end %>
       <% end %>
