@@ -25,7 +25,10 @@ class Users::SessionsController < Devise::SessionsController
    def like
     @user = User.find_by(id:params[:id])
     @likes = Like.where(user_id: @user.id)
-  end
+    @posts = @likes.map do |like|
+      post = Post.find_by(id: like.post_id)
+    end
+   end
  
   def ensure_correct_user
     if current_user.id != params[:id].to_i

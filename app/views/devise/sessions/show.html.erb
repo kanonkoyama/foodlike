@@ -10,8 +10,8 @@
     </div>
     
     <ul class="user-tabs">
-      <li class="indexbtn"><%= link_to("foodレポ", "/users/#{@user.id}") %></li>
-      <li class="favbtn"><%= link_to("お気に入り", "/users/#{@user.id}/like") %></li>
+      <li class="light-button"><%= link_to("foodレポ", "/users/#{@user.id}") %></li>
+      <li class="dark-button"><%= link_to("お気に入り", "/users/#{@user.id}/like") %></li>
     </ul>
     
     <% @user.posts.each do |post| %>

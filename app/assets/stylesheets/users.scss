@@ -100,14 +100,18 @@
     border-bottom: 2px solid #3ecdc6;
   }
   
-  .user-tabs li:active a {
-    color: #57575f;
-  }
   
   .user-tabs a {
     display: inline-block;
     padding: 16px 30px;
+  }
+
+  .dark-button a{
     color: #afb6bf;
+  }
+
+  .light-button a{
+    color: #57575f;
   }
   
   /* users/new, users/edit ================================ */

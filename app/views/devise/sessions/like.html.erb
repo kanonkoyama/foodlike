@@ -10,12 +10,11 @@
     </div>
     
     <ul class="user-tabs">
-      <li class="active"><%= link_to("foodレポ", "/users/#{@user.id}") %></li>
-      <li><%= link_to("お気に入り", "/users/#{@user.id}/like") %></li>
+      <li class="dark-button"><%= link_to("foodレポ", "/users/#{@user.id}") %></li>
+      <li class="light-button"><%= link_to("お気に入り", "/users/#{@user.id}/like") %></li>
     </ul>
     
-    <% @likes.each do |like| %>
-      <% post = Post.find_by(id: like.post_id) %>
+    <% @posts.each do |post| %>
       <div class="posts-index-item">
       <div class="post-user">
         <div class="img">
