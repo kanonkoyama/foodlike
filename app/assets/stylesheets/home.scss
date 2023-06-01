@@ -63,16 +63,16 @@
   }
   
   .container {
-    max-width: 600px;
-    margin: 60px auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    max-width: 100vh;
+    margin: 13vh auto;
+    padding-left: 10vh;
+    padding-right: 10vh;
     clear: both;
   }
   
-  /* ヘッダー ================================ */
+  /* ヘッダー */
   header {
-    height: 64px;
+    height: 10vh;
     position: fixed;
     z-index: 10;
     width: 100%;
@@ -82,6 +82,7 @@
     text-align: center;
     background-color:#ff8800;
   }
+
   header ul{
     position:absolute;
     top:50%;
@@ -91,17 +92,20 @@
     width:100%;
     color: white;
   }
+
   .header-menus li {
     display: inline-block;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: bolder;
   }
+
   header a{
     color:white;
     margin-right: 20px;
     margin-left: 20px;
   }
+
   .header-menus button{
     line-height: 64px;
     color: white;
@@ -110,38 +114,8 @@
     margin-right: 20px;
     margin-left: 20px;
   }  
-  .header-logo {
-    display:none;
-    float: left;
-    padding-left: 20px;
-    color: white;
-    font-size: 22px;
-    line-height: 64px;
-  }
-  
-  .header-logo a{
-    display:none;
-    color: white;
-    font-size: 22px;
-  }
-    
-  
-  
-  .header-menus .fa {
-    padding-right: 5px;
-  }
-  
-  .header-menus input[type="submit"] {
-    padding: 0 20px;
-    float: left;
-    line-height: 64px;
-    color: white;
-    margin: 0;
-    font-size: 13px;
-  }
-  
-  
-  /* top ================================ */
+
+  /* top */
   .top-main {
     padding: 200px 0 100px;
     text-align: center;
@@ -168,28 +142,23 @@
     -webkit-font-smoothing: antialiased;
   }
   
-  /* about ================================ */
+  /* about */
   .about-main {
-    padding: 180px 8% 0;
+    padding: 25vh;
     color: white;
   }
   
   .about-main h2 {
-    font-size: 64px;
+    font-size: 4.4em;
     font-weight: 500;
     line-height: 1.4;
   }
   
   .about-main p {
-    font-weight: 200;
-    font-size: 20px;
+    font-size: 1.8em;
   }
   
-  .about-img {
-    width: 84%;
-  }
-  
-  /* フォーム================================ */
+  /* form */
   .form {
     max-width: 600px;
     margin: 0 auto;
@@ -247,17 +216,29 @@
     clear: both;
   }
   
-  /* フラッシュ ================================ */
+  /* フラッシュ */
   .notice{
     display: block;
     position:absolute;
-    padding: 10px 0;
-    color: black;
-    background: rgb(251, 170, 88);
+    padding:2vh 0;
+    color: red;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 9vh;
+    margin-bottom: 2vh;
     z-index: 12;
     width: 100%;
-    border-radius: 0 0 2px 2px;
-    font-size: 14px;
+    font-size: 1.3em;
+  }
+
+  .alert{
+    display: block;
+    position:absolute;
+    padding: 2vh 0;
+    color: red;
+    text-align: center;
+    margin-top: 9vh;
+    margin-bottom: 2vh;
+    z-index: 12;
+    width: 100%;
+    font-size: 1.3em;
   }

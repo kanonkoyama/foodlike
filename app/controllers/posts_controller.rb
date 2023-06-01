@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   protect_from_forgery
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(id: :desc)
   end
 
   def show
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
   
   def new
-    @post = Post.new
+      @post = Post.new
   end
   
   def create
@@ -27,12 +27,12 @@ class PostsController < ApplicationController
       )
     else    
       flash[:notice] = "ログインしてください。"
-      render("posts/new")
+      render("users/sign_in")
     end  
-    if params[:post_image] == nil
-      @post.post_image = "post_image_default.jpg"
-    else  
+    if params[:post]
       @post.post_image = params[:post][:post_image]
+    else  
+      @post.post_image = "post_image_default.jpg"
     end  
      # @post.image_name = "#{@post.id}.jpg"
     #  image = params[:image]
@@ -41,31 +41,32 @@ class PostsController < ApplicationController
     if @post.save
       flash[:notice] = "投稿を作成しました。"
       redirect_to("/posts/index")
-    else
+    elsif params[:post] == nil
+      flash[:notice] = "内容を入力してください"
+      redirect_to("/posts/new")
+    else  
       flash[:notice] = "投稿を作成出来ませんでした。"
-      render("posts/new")
+      redirect_to("/posts/new")
     end
   end
 
   def edit
     @post = Post.find_by(id: params[:id])
-
   end
   
   def update
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
 
-    if params[:image]
-      @post.image_name = "#{@post.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/post_images/#{@post.image_name}", image.read)
+    if params[:post][:post_image]
+      @post.post_image = params[:post][:post_image]
     end
 
     if @post.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")
     else
+      flash[:notice] = "保存できませんでした"
       render("posts/edit")
     end
   end
@@ -78,6 +79,10 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    @likes = Like.where(post_id: params[:id])
+    if @likes
+      @likes.destroy_all
+    end  
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end  

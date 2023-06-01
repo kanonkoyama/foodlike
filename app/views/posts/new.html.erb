@@ -9,7 +9,7 @@
               <%= message %>
             </div>
           <% end %>
-          <%= f.label :画像%><br />
+          <%= f.label :画像をつけて投稿しますか？%><br />
           <%= f.file_field :post_image %>
           <% f.hidden_field :post_image_cache %>
           <textarea name="content"><%= @post.content %></textarea>

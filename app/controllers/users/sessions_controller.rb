@@ -24,7 +24,7 @@ class Users::SessionsController < Devise::SessionsController
    
    def like
     @user = User.find_by(id:params[:id])
-    @likes = Like.where(user_id: @user.id)
+    @likes = Like.where(user_id: @user.id).order(id: :desc)
     @posts = @likes.map do |like|
       post = Post.find_by(id: like.post_id)
     end

@@ -26,7 +26,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
    def destroy
+     @user = User.find_by(id: current_user.id)
+     puts @user.id
+     @posts = @user.posts
+     puts @posts
+     if @posts
+      @posts.map do |post|
+         @liked = Like.where(post_id: post.id)
+         @liked.destroy_all
+         post.destroy
+      end   
+     end
+     @likes = Like.where(user_id: @user.id)
+     if @likes
+      @likes.destroy_all
+     end 
+
      super
+
    end
 
   # GET /resource/cancel
@@ -45,7 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
      devise_parameter_sanitizer.permit(:sign_up, keys: [:image])
-     #devise_parameter_sanitizer.permit(:sign_up, keys: [:image_cache])
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:image_cache])
    end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -53,7 +70,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
      devise_parameter_sanitizer.permit(:account_update, keys: [:image])
-     #devise_parameter_sanitizer.permit(:account_update, keys: [:image_cache])
+     devise_parameter_sanitizer.permit(:account_update, keys: [:image_cache])
    end
 
   # The path used after sign up.

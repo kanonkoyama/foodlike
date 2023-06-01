@@ -2,7 +2,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   def posts
-    return Post.where(user_id: self.id)
+    return Post.where(user_id: self.id).order(id: :desc)
   end      
    
   # Include default devise modules. Others available are:

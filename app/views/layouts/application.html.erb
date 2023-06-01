@@ -5,27 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link href="https://use.fontawesome.com/releases/v6.1.2/css/all.css" rel="stylesheet">
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-     <header>
-      <div class="header-logo">
-        <% if user_signed_in? %>
-          <%= link_to("foodlike", "/posts/index") %>
-        <% else %>
-          <%= link_to("foodlike", "/") %>
-        <% end %>
-      </div>
+    <header>
       <ul class="header-menus">
         <% if user_signed_in? %>
-          <li>
-            <%= link_to(current_user.name, "/users/#{current_user.id}") %>
-          </li>
-
           <li>
             <%= link_to("foodlikeとは","/about") %>
           </li>
@@ -64,11 +51,11 @@
       </ul>
     </header>
     
-    <% if flash[:notice] %>
       <p class="notice"><%= notice %></p>
-    <% end %>  
     <p class="alert"><%= alert %></p>
+    <%= flash[:alert] %>
     
     <%= yield %>
+    
   </body>
 </html>
