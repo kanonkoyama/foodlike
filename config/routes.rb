@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post "likes/:post_id/destroy" => "likes#destroy"
 
   post "posts/:id/destroy" => "posts#destroy"
-  post "posts/update" => "posts#update"
+  patch "posts/:id/update" => "posts#update"
   post "posts/create" => "posts#create"
   get "posts/new" => "posts#new"
   get 'posts/index' => "posts#index"

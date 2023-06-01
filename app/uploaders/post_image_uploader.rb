@@ -31,8 +31,12 @@ class PostImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
    version :thumb do
-     process resize_to_fit: [128, 128]
+     process resize_to_fit: [350,350]
    end
+
+   version :small_thumb, from_version: :thumb do
+     process resize_to_fit: [128,128]
+   end 
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:

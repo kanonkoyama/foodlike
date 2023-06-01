@@ -15,10 +15,17 @@ class ContactsController < ApplicationController
   end
   
   def create
-    @contact=Contact.new(
-      content: params[:content],
-      user_id: current_user.id
-    )
+    if user_signed_in?
+      @contact=Contact.new(
+        content: params[:content],
+        user_id: current_user.id
+      )
+    else
+      @contact=Contact.new(
+        content: params[:content],
+        user_id: "0"
+      )  
+    end 
     if @contact.save
       flash[:notice] = "貴重なご意見ありがとうございます。また何かございましたら、ご意見をお聞かせください。"
       redirect_to("/posts/index")
