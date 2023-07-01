@@ -1,0 +1,225 @@
+@media all and (min-width:686px){
+    .openbtn,.openbtn-menu{
+        display: none;
+    }
+}
+
+@media all and (min-width:1155px){
+    .container{
+        margin-top: 1vh;
+    }
+
+    /* header */
+    .header-menus{
+        height:10vh;
+    }
+
+    .header-menus ul{
+        max-width:2100px;
+        width:100%;
+    }
+
+    .header-menus li{
+        font-size: 1.5em;
+    }
+
+    .header-menus li{
+        margin-left: 0.5vh;
+        margin-left: 0.5vh;
+        margin-top:0.5vh;
+    }
+
+    .header-menus button{
+        font-size: 1em;
+    }
+
+    /* posts/index */
+    .posts-index{
+        margin-top: 15vh;
+    }
+
+    .post-content p{
+        font-size: larger;
+    }
+
+    /* posts/show */
+    .posts-show-item{
+        margin-top: 12vh;
+        font-size: larger;
+        padding:3vh;
+    }
+
+    .post-user-name a {
+        font-size: 1em;
+    }
+
+    /* posts/new,contacts/new */
+    .form-heading{
+        margin-top: 12vh;
+    }
+
+    /* users/show,users/like */
+    .user{
+        margin-top:12vh;
+    }
+
+    .user-tabs{
+        font-size: larger;
+    }
+}
+
+@media all and (max-width:899px){
+    /* header */
+    .header-menus li{
+        font-size: 1em;
+    }
+    .header-menus button{
+        font-size: 1em;
+    }
+
+    /* about */
+    .about-main h2 {
+        font-size: 3em;
+        line-height: 1.4;
+    }
+
+    .about-main p{
+        font-size: 1.5em;
+    }
+
+    /* posts/index */
+    .posts-index{
+        margin-top: 15vh;
+    }
+
+    .post-content p{
+        font-size: larger;
+    }
+
+    /* posts/new,contacts/new */
+    .form-heading{
+        margin-top: 12vh;
+        font-size: 2.8em;
+    }
+}
+
+@media all and (max-width:780px){
+    /* header */
+    .header-menus li{
+        font-size: 0.8em;
+    }
+    .header-menus button{
+        font-size: 1em;
+    }
+
+}
+
+@media all and (max-width:685px){
+    .container{
+        padding-left: 3vh;
+        padding-right: 3vh;
+        width:100%;
+    }
+
+    /* flash */
+    .notice,.alert{
+        margin-top:-10vh;
+        font-size: 0.8em;
+        padding:0;
+    }
+
+    /* header */
+    .header-menus{
+        display: none;
+    }
+
+    .logo{
+        background-color:#ff8800;
+        position: fixed;
+        top:0;
+        left:0;
+        right:0;
+        height:65px;
+        text-align: center;
+        z-index: 8;
+        width:100%;
+    }
+
+    .logo h3{
+        line-height: 65px;
+        font-family: 'Ysabeau Infant', sans-serif; 
+        font-size: 2em;  
+        color: white;
+    }
+
+    /* top */
+    .top-main h1{
+        font-size: 3.5em;
+    }
+
+    /* about */
+    .about-main{
+        padding:5vh;
+        padding-top:6vh;
+    }
+
+    .about-main h2{
+        font-size: 2.5em;
+    }
+
+    .about-main p{
+        font-size: 1.3em;
+    }
+
+
+    /* posts/index */
+    .posts-index{
+        margin-top: 20vh;
+    }
+
+    .posts-index-item{
+        padding:1vh 2vh;
+    }
+
+    .post-img img{
+        width:80px;
+        height:100px;
+    }
+
+    /* posts/show */
+    .posts-show-item{
+        padding:2vh;
+    }
+
+    .post-user-name img{
+        width:40px;
+        height:40px;
+    }
+
+    .post-img-show{
+        margin:0;
+    }
+
+    .post-img-show img{
+        width:160px;
+        height:200px;
+    }
+
+    /* posts/new,contacts/new */
+    input#post_post_image{
+        font-size: 0.8em;
+    }
+
+    .form-heading{
+        margin-top: 12vh;
+        font-size: 2em;
+    }
+
+    /* users/show,users/like */
+    .post-user img{
+        width:40px;
+        height:40px;
+    }
+
+}
+

@@ -2,11 +2,13 @@
 <html>
   <head>
     <title>Foodlike</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <link href="https://use.fontawesome.com/releases/v6.1.2/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Ysabeau+Infant:wght@500&display=swap" rel="stylesheet">    <link href="https://use.fontawesome.com/releases/v6.1.2/css/all.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= javascript_importmap_tags %>
   </head>
   <body>
@@ -49,6 +51,52 @@
           </li>
         <% end %>
       </ul>
+      <div class="logo">
+        <h3>foodlike</h3>
+      </div>
+      <div class="openbtn"><span></span><span></span><span></span></div>
+      <nav id="g-nav" class="openbtn-menu">
+        <ul>
+            <% if user_signed_in? %>
+          <li>
+            <a href = "/about">foodlikeとは</a>
+          </li>
+          <li>
+            <a href="/posts/index">foodレポ</a>
+          </li>
+          <li>
+            <a href="/posts/new">新規投稿</a>
+          </li>
+          <li>
+            <a href="/users/<%= current_user.id %>">マイページ</a>
+          </li>
+          <li>
+            <a href="/contacts/new">ご意見箱</a>
+          </li>
+          <li>
+            <%= button_to destroy_user_session_path, { method: :delete, form: { data: { turbo_confirm: 'ログアウトしてもよろしいですか？' }}} do %>
+              ログアウト
+            <% end %>
+          </li>  
+        <% else %>
+          <li>
+            <%= link_to("foodlikeとは", "/about") %>
+          </li>
+          <li>
+            <%= link_to("foodレポ", "/posts/index") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/users/sign_in") %>
+          </li>
+          <li>
+            <%= link_to("新規登録", "/users/sign_up") %>
+          </li>
+          <li>
+            <%= link_to("ご意見箱", "/contacts/new") %>
+          </li>
+        <% end %>
+        </ul>
+      </nav>
     </header>
     
       <p class="notice"><%= notice %></p>
