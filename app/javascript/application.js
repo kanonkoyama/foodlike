@@ -2,5 +2,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import jquery from "jquery"
+import "./custom/header.js"
 window.$ = jquery
 
